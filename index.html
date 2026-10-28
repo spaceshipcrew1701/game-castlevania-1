@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game archive Main Page</title>
+    <style>
+        /* Темна готична/стильна тема для зручного читання */
+        :root {
+            --bg-color: #121214;
+            --card-bg: #1e1e24;
+            --accent-color: #9d4edd;
+            --accent-hover: #c77dff;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Обкладинка / Постер */
+        .cover-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .poster-img {
+            max-width: 100%;
+            height: auto;
+            max-height: 450px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            object-fit: cover;
+        }
+
+        h1 {
+            color: #fff;
+            margin-top: 20px;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+        }
+
+        p.description {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Розділ Змісту */
+        .toc-section {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+
+        .toc-section h2 {
+            font-size: 1.5rem;
+            color: var(--accent-hover);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Сітка сторінок (Grid) */
+        .pages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 12px;
+        }
+
+        .page-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .page-link:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(157, 78, 221, 0.4);
+        }
+
+        /* Кнопка "Читати спочатку" */
+        .start-btn {
+            display: block;
+            width: fit-content;
+            margin: 0 auto 25px auto;
+            padding: 14px 28px;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            transition: background 0.3s ease;
+        }
+
+        .start-btn:hover {
+            background-color: var(--accent-hover);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Шапка: Постер та Назва -->
+        <div class="cover-header">
+            <!-- Переконайся, що файл зображення лежить поруч -->
+            <img src="poster.png" alt="Постер" class="poster-img" onerror="this.style.display='none'">
+            <h1>Castlevania (ч1) - Тайны и Кошмары</h1>
+            <p class="description">
+                Здесь можно читать всю игру в виде онлайн-журнала по страницам
+            </p>
+            <a href="page-1.html" class="start-btn">📖 Начать чтение (Страница 1)</a>
+        </div>
+
+        <!-- Зміст сторінок -->
+        <div class="toc-section">
+            <h2>Содержание</h2>
+            <div class="pages-grid">
+                <!-- Посилання на кожну з 37 сторінок -->
+                <script>
+                    // Автоматична генерація 37 кнопок-посилань
+                    const grid = document.currentScript.parentElement;
+                    for (let i = 1; i <= 42; i++) {
+                        const a = document.createElement('a');
+                        a.href = `page-${i}.html`;
+                        a.className = 'page-link';
+                        a.textContent = `Страница ${i}`;
+                        grid.appendChild(a);
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
